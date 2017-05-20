@@ -1,22 +1,19 @@
 import 'babel-polyfill';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/toastr/build/toastr.min.css';
-import TodoItem from './components/TodoItem/TodoItem';
-import TodoTextBox from './components/TodoTextBox/TodoTextBox';
+import { Router, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import { render } from 'react-dom';
+import routes from './routes';
+import configureStore from './store/configureStore';
+import loadTodos from './actions/todoActions';
 
-function App() {
-  return (
-    <div>
-      <TodoTextBox/>
+const store = configureStore();
+store.dispatch(loadTodos());
 
-      <TodoItem />
-    </div>
-  );
-}
-
-ReactDOM.render(
-  <App />,
-document.getElementById('app')
-);
+render(
+  <Provider store={store}>
+    <Router history={browserHistory} routes={routes}/>
+  </Provider>,
+document.getElementById('app'));

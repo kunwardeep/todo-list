@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
 
-function TodoItem() {
-  return <h1>Hello, some name</h1>;
+class TodoItem extends Component {
+  render() {
+    const { todo } = this.props;
+    return (
+    <div >
+      <label id={todo.id}>{todo.item} , {todo.completed} Hello, some name</label>
+    </div>)
+    ;
+  }
 }
+
+TodoItem.propTypes = {
+  todo: PropTypes.object.isRequired
+};
 
 export default TodoItem;

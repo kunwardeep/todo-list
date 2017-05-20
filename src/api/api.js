@@ -1,14 +1,14 @@
-const delay = 2000;
+const delay = 4000;
 
 const todos = [
   {
     id: '1',
-    item: 'Building Applications in React and Flux',
+    item: 'blah 01',
     completed: 'false'
   },
   {
     id: '2',
-    item: 'Building Applications in React and Flux',
+    item: 'blah 02',
     completed: 'false'
   }
 ];
