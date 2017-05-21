@@ -6,7 +6,7 @@ class TodoItem extends Component {
     const { todo } = this.props;
     return (
     <div >
-      <label id={todo.id}>{todo.item} , {todo.completed} Hello, some name</label>
+      <label id={todo.id}>{todo.item} , {todo.completed.toString()}</label>
     </div>)
     ;
   }

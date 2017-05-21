@@ -1,15 +1,15 @@
-const delay = 4000;
+const delay = 1000;
 
 const todos = [
   {
-    id: '1',
+    id: 1,
     item: 'blah 01',
-    completed: 'false'
+    completed: false
   },
   {
-    id: '2',
+    id: 2,
     item: 'blah 02',
-    completed: 'false'
+    completed: false
   }
 ];
 
@@ -17,7 +17,7 @@ class TodosApi {
   static getAllTodos() {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(Object.assign([], todos));
+        resolve([...todos]);
       }, delay);
     });
   }
