@@ -6,14 +6,15 @@ import { PropTypes } from 'prop-types';
 import TodoItem from './TodoItem/TodoItem';
 import { connect } from 'react-redux';
 import { setTodo } from '../actions/todoActions';
+import { setComplete, deleteTodo } from '../actions/todoActions';
 
 class App extends Component {
   render() {
-    const { todos, onSubmit } = this.props;
+    const { todos, onAdd, onComplete, onDelete } = this.props;
     return (
     <div>
-      <TodoTextBox onSubmit={onSubmit}/>
-      { todos.length > 0 && todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+      <TodoTextBox onSubmit={onAdd}/>
+      { todos.length > 0 && todos.map(todo => <TodoItem onComplete={onComplete} onDelete={onDelete} key={todo.id} todo={todo} />)}
     </div>
     );
   }
@@ -21,7 +22,9 @@ class App extends Component {
 
 App.propTypes = {
   todos: PropTypes.array.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onAdd: PropTypes.func.isRequired,
+  onComplete: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -29,8 +32,14 @@ const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  onSubmit: evt => {
+  onAdd: evt => {
     dispatch(setTodo(evt.target.querySelector('input').value));
+  },
+  onComplete: evt => {
+    dispatch(setComplete(evt.target.id));
+  },
+  onDelete: evt => {
+    dispatch(deleteTodo(evt.target.id));
   }
 });
 
