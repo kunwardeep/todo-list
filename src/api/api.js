@@ -21,7 +21,6 @@ class TodosApi {
       }, delay);
     });
   }
-
 }
 
 export default TodosApi;

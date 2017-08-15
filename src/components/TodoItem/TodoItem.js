@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
+import { setComplete, deleteTodo } from '../../actions/todoActions';
 
 class TodoItem extends Component {
   render() {
@@ -34,4 +36,13 @@ TodoItem.propTypes = {
   onDelete: PropTypes.func.isRequired
 };
 
-export default TodoItem;
+export const mapDispatchToProps = dispatch => ({
+  onComplete: evt => {
+    dispatch(setComplete(evt.target.id));
+  },
+  onDelete: evt => {
+    dispatch(deleteTodo(evt.target.id));
+  }
+});
+
+export default connect(null, mapDispatchToProps)(TodoItem);
