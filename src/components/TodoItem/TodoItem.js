@@ -17,7 +17,7 @@ class TodoItem extends Component {
           {todo.item} , {todo.completed.toString()}
         </button>
 
-        <button onClick={e => {
+        <button data-automation-id="btnDelete" onClick={e => {
           e.preventDefault();
           onDelete(e);
         }}
