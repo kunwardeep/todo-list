@@ -48,10 +48,10 @@ describe('<TodoItem />', () => {
     console.log(todoItem.html());
     expect(todoItem.length).to.equal(1);
   });
-  it('onDelete is called', () => {
-    const wrapper = createComponent();
-    const todoItem = wrapper.find('[data-automation-id="btnDelete"]');
-    todoItem.simulate('click');
-    expect(deleteCalled).to.equal(true);
-  });
+  // it('onDelete is called', () => {
+  //   const wrapper = createComponent();
+  //   const todoItem = wrapper.find('[data-automation-id="btnDelete"]');
+  //   todoItem.simulate('click');
+  //   expect(deleteCalled).to.equal(true);
+  // });
 });
