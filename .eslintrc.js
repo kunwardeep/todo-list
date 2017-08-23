@@ -7,6 +7,7 @@ module.exports = {
     "browser": true,
     "node": true,
     "es6": true,
+    "mocha":true,
   },
   "globals": {
     "expect": true,
@@ -15,6 +16,7 @@ module.exports = {
   "plugins": [
     "react",
     "import",
+    "mocha",
   ],
    "settings": {
      "import/resolver": {
