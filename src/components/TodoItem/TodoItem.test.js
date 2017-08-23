@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import chai from 'chai';
 const expect = chai.expect;
-
+// few comments
 const createMockStore = (initialState = {}) =>
   configureMockStore()(initialState);
 
