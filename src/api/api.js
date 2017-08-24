@@ -1,25 +1,21 @@
-const delay = 1000;
+/* eslint-disable no-console */
+const axios = require('axios');
+const mockServerAddr = 'http://localhost:5050';
 
-const todos = [
-  {
-    id: 1,
-    item: 'blah 01',
-    completed: false
-  },
-  {
-    id: 2,
-    item: 'blah 02',
-    completed: false
-  }
-];
+const http = axios.create({
+  baseURL: mockServerAddr,
+  headers: { 'content-type': 'application/json' }
+});
 
 class TodosApi {
   static getAllTodos() {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve([...todos]);
-      }, delay);
-    });
+    return http.get(`/todos`)
+      .then(function(response) {
+        return response.data;
+      })
+      .catch(function(error) {
+        console.log(`Errors---${error}`);
+      });
   }
 }
 
