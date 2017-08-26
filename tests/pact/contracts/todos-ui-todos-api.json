@@ -1,0 +1,43 @@
+{
+  "consumer": {
+    "name": "todos-ui"
+  },
+  "provider": {
+    "name": "todos-api"
+  },
+  "interactions": [
+    {
+      "description": "a request for todos",
+      "providerState": "i have a list of todos",
+      "request": {
+        "method": "GET",
+        "path": "/todos",
+        "headers": {
+          "content-type": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": [
+          {
+            "id": 1,
+            "item": "blah 01",
+            "completed": false
+          },
+          {
+            "id": 2,
+            "item": "blah 02",
+            "completed": false
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
