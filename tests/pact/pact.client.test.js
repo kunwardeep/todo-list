@@ -8,7 +8,7 @@ describe('The Todos API', () => {
 
   const provider = pact({
     port,
-    log: path.resolve(process.cwd(), 'tests/pact/pact-server.log'),
+    log: path.resolve(process.cwd(), 'tests/pact/pact-client.log'),
     dir: path.resolve(process.cwd(), 'tests/pact/contracts'),
     spec: 2,
     consumer: 'todos-ui',

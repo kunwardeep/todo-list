@@ -41,4 +41,4 @@ module.exports = {
   start
 };
 
-start('localhost', 5050, 'http://localhost:3000');
+// start('localhost', 5050, 'http://localhost:3000');
