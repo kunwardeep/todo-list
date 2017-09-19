@@ -4,12 +4,15 @@
   "description": "Todo App",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
-    "start": "npm-run-all --parallel open:src",
+    "start": "npm-run-all --parallel open:src start:backend",
     "open:src": "babel-node tools/srcServer.js",
+    "start:backend": "node tests/resources/startServer.js",
     "lint": "esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
     "test": "mocha --reporter spec tools/testSetup.js \"src/**/*.test.js\"",
-    "test:pact": "PACT_TEST=1 mocha --reporter spec tools/testSetup.js \"tests/pact/**/*.test.js\"",
+    "test:pact:client": "PACT_TEST=1 mocha --reporter spec tools/testSetup.js \"tests/pact/**/*.client.test.js\"",
+    "test:pact:server": "PACT_TEST=1 mocha --reporter spec tools/testSetup.js \"tests/pact/**/*.server.test.js\"",
+
     "test:watch": "npm run test -- --watch"
   },
   "author": "Kunwardeep",

@@ -7,7 +7,7 @@ server.start('localhost', 5051, 'http://localhost:3000');
 
 // Verify that the provider meets all consumer expectations
 describe('Pact Verification', () => {
-  it('should validate the expectations of Matching Service', function() { // lexical binding required here
+  it('should validate the expectations of todo-api', function() { // lexical binding required here
     const opts = {
       provider: 'todos-api',
       providerBaseUrl: 'http://localhost:5051',
